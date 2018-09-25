@@ -6,7 +6,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
@@ -16,9 +15,9 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 
 //This class relates to all the views/fragments etc used
-public class ListViewActivity extends AppCompatActivity implements View {
+public class ListView_View extends AppCompatActivity implements View {
 
-    //In our activity_main.xml, we have a TextView and a Button, hence they are declared below
+    //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
      public static CosmeticAPI mApiService;
      private ListViewPresenter presenter;
 
@@ -26,8 +25,8 @@ public class ListViewActivity extends AppCompatActivity implements View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Set the content view to the activity_main.xml
-        setContentView(R.layout.activity_main);
+        //Set the content view to the listview_view.xml
+        setContentView(R.layout.listview_view);
 
         presenter = new ListViewPresenter();
         presenter.attachView(this);

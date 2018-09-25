@@ -7,8 +7,8 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
 //Contract holds the well defined methods for all of the 3 classes
 public interface ListViewContract {
 
-    //View defines the rules for the View Class - the below methods will need to be implemented in ListViewActivity
-    interface View {
+    //View defines the rules for the ListView_View Class - the below methods will need to be implemented in ListView_View
+        interface View {
         //Method used to set some data
 
         void initView();
@@ -17,6 +17,7 @@ public interface ListViewContract {
         void showToast(String toast);
     }
 
+    //The below methods will be defined in the ListViewPresenter class
     interface Presenter {
 
        void getCosmetics();
