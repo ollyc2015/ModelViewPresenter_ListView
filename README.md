@@ -4,7 +4,7 @@ An experimental project implementing the Model View Presenter pattern using Acti
 
 Pulls cruelty free make-up from http://makeup-api.herokuapp.com/ via a public API.
 
-
+![alt text](http://oliverbcurtis.co.uk/images/ModelViewPresenter_ListView/MVP_ListView.png)
 
 # Design
 * MVP.
