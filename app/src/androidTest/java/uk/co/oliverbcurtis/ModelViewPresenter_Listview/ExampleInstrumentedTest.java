@@ -1,4 +1,4 @@
-package uk.co.oliverbcurtis.mvpexample;
+package uk.co.oliverbcurtis.ModelViewPresenter_Listview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
