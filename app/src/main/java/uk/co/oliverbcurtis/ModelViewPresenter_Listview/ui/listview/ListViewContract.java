@@ -2,7 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import java.util.List;
 
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
 //Contract holds the well defined methods for all of the 3 classes
 public interface ListViewContract {
@@ -12,16 +12,17 @@ public interface ListViewContract {
         //Method used to set some data
 
         void initView();
-        void populateListView(List<Cosmetic> cosmetics);
-        Cosmetic selectCosmetic();
+        void populateListView(List<Meal> meal);
+        Meal selectMeal();
         void showToast(String toast);
     }
 
     //The below methods will be defined in the ListViewPresenter class
     interface Presenter {
 
-       void getCosmetics();
+       void getMeal();
        void attachView(ListViewContract.View view);
+       void onClick(Meal position);
     }
 
 }

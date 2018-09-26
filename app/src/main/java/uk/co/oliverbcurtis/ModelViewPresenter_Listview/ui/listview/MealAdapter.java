@@ -13,15 +13,16 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
-public class CosmeticAdapter extends ArrayAdapter<Cosmetic> {
+public class MealAdapter extends ArrayAdapter<Meal> {
 
 
-    public CosmeticAdapter(@NonNull Context context, ArrayList<Cosmetic> cosmeticArrayList) {
-        super(context,0, cosmeticArrayList);
+    public MealAdapter(@NonNull Context context, List<Meal> mealArrayList) {
+        super(context,0,mealArrayList);
     }
 
     @NonNull
@@ -29,17 +30,19 @@ public class CosmeticAdapter extends ArrayAdapter<Cosmetic> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         // Get the data item for this position
-        Cosmetic cosmetic = getItem(position);
+        Meal meal = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_cosmetic, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_meal, parent, false);
         }
         // Lookup view for data population
-        ImageView iv_cosmetic = (ImageView) convertView.findViewById(R.id.iv_cosmetic);
-        TextView tv_cosmetic = (TextView) convertView.findViewById(R.id.tv_cosmetic);
+        ImageView iv_cosmetic = (ImageView) convertView.findViewById(R.id.iv_meal);
+        TextView tv_cosmetic = (TextView) convertView.findViewById(R.id.tv_meal);
+
         // Populate the data into the template view using the data object
-        Picasso.get().load(cosmetic.getImageLink()).into(iv_cosmetic);
-        tv_cosmetic.setText(cosmetic.getName());
+        Picasso.get().load(meal.getStrMealThumb()).into(iv_cosmetic);
+        tv_cosmetic.setText(meal.getStrMeal());
+
         // Return the completed view to render on screen
         return convertView;
 

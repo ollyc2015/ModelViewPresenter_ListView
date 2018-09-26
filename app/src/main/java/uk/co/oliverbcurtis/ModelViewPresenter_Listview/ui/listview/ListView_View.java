@@ -2,23 +2,33 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
-
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.CosmeticAPI;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 
 //This class relates to all the views/fragments etc used
 public class ListView_View extends AppCompatActivity implements View {
 
     //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
-     public static CosmeticAPI mApiService;
      private ListViewPresenter presenter;
 
 
@@ -29,6 +39,7 @@ public class ListView_View extends AppCompatActivity implements View {
         setContentView(R.layout.listview_view);
 
         presenter = new ListViewPresenter();
+        //attach the view as this creates a link between this class and the listViewPresenter (without this would cause a null pointer)
         presenter.attachView(this);
         initView();
     }
@@ -42,25 +53,39 @@ public class ListView_View extends AppCompatActivity implements View {
     @Override
     public void initView() {
 
-        presenter.getCosmetics();
+        presenter.getMeal();
 
     }
 
     @Override
-    public void populateListView(List<Cosmetic> cosmetic) {
+    public void populateListView(final List<Meal> meal) {
 
-        ArrayList cosmeticList = new ArrayList<>(cosmetic);
-
-        CosmeticAdapter cosmeticAdapter = new CosmeticAdapter(this, cosmeticList);
+        MealAdapter cosmeticAdapter = new MealAdapter(this, meal);
 
         // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.list_view);
+        final ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(cosmeticAdapter);
 
+        //Get string value of selected item
+        listView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> arg0, android.view.View view, int position, long arg3) {
+
+                        //first get the position of the item clicked, then collect the ID (in presenter class)
+                        //Object meal1 = cosmeticList.get(position);
+
+                        //Then pass it to the presenter class for logic handling
+                        //presenter.onClick(meal1);
+
+
+                    }
+                }
+        );
     }
 
     @Override
-    public Cosmetic selectCosmetic() {
+    public Meal selectMeal() {
         return null;
     }
 }

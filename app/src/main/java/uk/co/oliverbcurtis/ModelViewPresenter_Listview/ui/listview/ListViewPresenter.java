@@ -1,14 +1,21 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+
+import android.widget.Toast;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.CosmeticAPI;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealAPI;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
 
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Cosmetic;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 
 /*
@@ -17,29 +24,32 @@ The presenter class holds all of the business logic and acts as a mediator betwe
 public class ListViewPresenter implements ListViewContract.Presenter {
 
     private ListViewContract.View view;
-    private CosmeticAPI apiService  = ApiUtils.getApiService();
-    private List<Cosmetic> cosmetics;
+    private MealAPI apiService  = ApiUtils.getApiService();
+    private MealResponse meals;
 
 
     @Override
-    public void getCosmetics() {
+    public void getMeal() {
 
-        //Call the external DB to load all the animal cruelty free cosmetics
-        apiService.getCosmeticList();
+        //Call the external DB to load all the latest meals
+        apiService.getMealList();
 
-        // Retrofit call to API, returns list of cosmetics
-        apiService.getCosmeticList().enqueue(new Callback <List<Cosmetic>>() {
+        // Retrofit call to API, returns list of meals
+        apiService.getMealList().enqueue(new Callback <MealResponse>() {
             @Override
-            public void onResponse(Call<List<Cosmetic>> call, Response<List<Cosmetic>> response) {
+            public void onResponse(Call <MealResponse> call, Response<MealResponse> response) {
                 if(response.isSuccessful()) {
 
-                    cosmetics = response.body();
-                    view.populateListView(cosmetics);
+                    meals = response.body();
+
+                    List<Meal> mealResponse = meals.getMeals();
+
+                    view.populateListView(mealResponse);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Cosmetic>> call, Throwable t) {
+            public void onFailure(Call<MealResponse> call, Throwable t) {
                 view.showToast(t.toString());
             }
         });
@@ -50,6 +60,16 @@ public class ListViewPresenter implements ListViewContract.Presenter {
     public void attachView(View view) {
 
         this.view = view;
+
+    }
+
+    @Override
+    public void onClick(Meal position) {
+
+        view.showToast(position.getIdMeal().toString());
+
+       // apiService.getCosmetic();
+
 
     }
 }

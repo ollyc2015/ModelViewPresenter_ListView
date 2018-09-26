@@ -1,18 +1,15 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote;
 
-/**
- * Created by Jake on 14/05/2018.
- */
 
 public class ApiUtils {
 
     private ApiUtils() {}
 
-    public static final String BASE_URL = "http://makeup-api.herokuapp.com/api/v1/";
+    public static final String BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
 
-    public static CosmeticAPI getApiService() {
+    public static MealAPI getApiService() {
 
-        return RetrofitClient.getClient(BASE_URL).create(CosmeticAPI.class);
+        return RetrofitClient.getClient(BASE_URL).create(MealAPI.class);
     }
 
 }
