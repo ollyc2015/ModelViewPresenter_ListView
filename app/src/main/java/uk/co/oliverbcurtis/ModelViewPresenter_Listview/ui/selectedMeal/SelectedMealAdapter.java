@@ -55,16 +55,16 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
         Picasso.get().load(meal.getStrMealThumb()).into(iv_cosmetic);
         tv_cosmetic.setText(meal.getStrMeal());
         tv_cuisineType.setText(meal.getStrArea());
-        tv_ingredient1.setText(meal.getStrIngredient1());
-        tv_ingredient2.setText(meal.getStrIngredient2());
-        tv_ingredient3.setText(meal.getStrIngredient3());
-        tv_ingredient4.setText(meal.getStrIngredient4());
-        tv_ingredient5.setText(meal.getStrIngredient5());
-        tv_ingredient6.setText(meal.getStrIngredient6());
-        tv_ingredient7.setText(meal.getStrIngredient7());
-        tv_ingredient8.setText(meal.getStrIngredient8());
-        tv_ingredient9.setText(meal.getStrIngredient9());
-        tv_ingredient10.setText(meal.getStrIngredient10());
+        tv_ingredient1.setText(meal.getStrIngredient1()+" ("+meal.getStrMeasure1()+")");
+        tv_ingredient2.setText(meal.getStrIngredient2()+" ("+meal.getStrMeasure2()+")");
+        tv_ingredient3.setText(meal.getStrIngredient3()+" ("+meal.getStrMeasure3()+")");
+        tv_ingredient4.setText(meal.getStrIngredient4()+" ("+meal.getStrMeasure4()+")");
+        tv_ingredient5.setText(meal.getStrIngredient5()+" ("+meal.getStrMeasure5()+")");
+        tv_ingredient6.setText(meal.getStrIngredient6()+" ("+meal.getStrMeasure6()+")");
+        tv_ingredient7.setText(meal.getStrIngredient7()+" ("+meal.getStrMeasure7()+")");
+        tv_ingredient8.setText(meal.getStrIngredient8()+" ("+meal.getStrMeasure8()+")");
+        tv_ingredient9.setText(meal.getStrIngredient9()+" ("+meal.getStrMeasure9()+")");
+        tv_ingredient10.setText(meal.getStrIngredient10()+" ("+meal.getStrMeasure10()+")");
         tv_instructions.setText(meal.getStrInstructions());
 
         // Return the completed view to render on screen
