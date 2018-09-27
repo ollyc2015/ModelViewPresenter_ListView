@@ -1,10 +1,5 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal;
 
-import java.util.List;
-
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract;
-
 
 public interface SelectedMealContract {
 
@@ -16,9 +11,5 @@ public interface SelectedMealContract {
 
     }
 
-    //The below methods will be defined in the ListViewPresenter class
-    interface Presenter {
 
-        void attachView(SelectedMealContract.View view);
-    }
 }
