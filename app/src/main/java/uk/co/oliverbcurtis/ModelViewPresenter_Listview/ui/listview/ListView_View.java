@@ -1,29 +1,21 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealView;
 
 //This class relates to all the views/fragments etc used
 public class ListView_View extends AppCompatActivity implements View {
@@ -60,7 +52,7 @@ public class ListView_View extends AppCompatActivity implements View {
     @Override
     public void populateListView(final List<Meal> meal) {
 
-        MealAdapter cosmeticAdapter = new MealAdapter(this, meal);
+        MealListAdapter cosmeticAdapter = new MealListAdapter(this, meal);
 
         // Attach the adapter to a ListView
         final ListView listView = (ListView) findViewById(R.id.list_view);
@@ -73,10 +65,10 @@ public class ListView_View extends AppCompatActivity implements View {
                     public void onItemClick(AdapterView<?> arg0, android.view.View view, int position, long arg3) {
 
                         //first get the position of the item clicked, then collect the ID (in presenter class)
-                        //Object meal1 = cosmeticList.get(position);
+                        Meal meal1 = meal.get(position);
 
                         //Then pass it to the presenter class for logic handling
-                        //presenter.onClick(meal1);
+                        presenter.onClick(meal1);
 
 
                     }
@@ -85,7 +77,14 @@ public class ListView_View extends AppCompatActivity implements View {
     }
 
     @Override
-    public Meal selectMeal() {
-        return null;
+    public void selectedMeal(List<Meal> mealResponse) {
+
+        ArrayList myList = ((ArrayList) mealResponse);
+
+        Intent i =new Intent(this,SelectedMealView.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("selectedMeal", myList);
+        i.putExtras(bundle);
+        startActivity(i);
     }
 }

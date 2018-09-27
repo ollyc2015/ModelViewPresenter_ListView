@@ -11,11 +11,11 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
 
 public interface MealAPI {
 
-    // Returns list of all cosmetics that are cruelty free
+    // Returns list of all the latest meals
     @GET("latest.php")
     Call<MealResponse> getMealList();
 
-    // Returns details of the selected cruelty free cosmetic
-   // @GET("products.json?product_tags=cruelty%20free")
-   // Call<List<Cosmetic>> getCosmeticList();
+    // Returns details of the selected meal by ID
+    @GET("lookup.php")
+    Call<MealResponse> getMeal(@Query("i") String idMeal);
 }

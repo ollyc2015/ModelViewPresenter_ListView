@@ -12,16 +12,15 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
-public class MealAdapter extends ArrayAdapter<Meal> {
+public class MealListAdapter extends ArrayAdapter<Meal> {
 
 
-    public MealAdapter(@NonNull Context context, List<Meal> mealArrayList) {
+    public MealListAdapter(@NonNull Context context, List<Meal> mealArrayList) {
         super(context,0,mealArrayList);
     }
 
@@ -33,7 +32,7 @@ public class MealAdapter extends ArrayAdapter<Meal> {
         Meal meal = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_meal, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.meal_list_layout, parent, false);
         }
         // Lookup view for data population
         ImageView iv_cosmetic = (ImageView) convertView.findViewById(R.id.iv_meal);

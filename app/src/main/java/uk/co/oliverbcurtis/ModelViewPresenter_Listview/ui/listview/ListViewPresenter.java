@@ -1,11 +1,9 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
 
-import android.widget.Toast;
-
-import org.json.JSONArray;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,6 +15,7 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealView;
 
 /*
 The presenter class holds all of the business logic and acts as a mediator between the view and model
@@ -56,6 +55,7 @@ public class ListViewPresenter implements ListViewContract.Presenter {
 
     }
 
+    //Below deals with assigning the pointer view to the view
     @Override
     public void attachView(View view) {
 
@@ -63,12 +63,34 @@ public class ListViewPresenter implements ListViewContract.Presenter {
 
     }
 
+
+
+
     @Override
     public void onClick(Meal position) {
 
-        view.showToast(position.getIdMeal().toString());
+        final String mealID = position.getIdMeal().toString();
+        //apiService.getMeal();
 
-       // apiService.getCosmetic();
+        // Retrofit call to API, returns the meal details of the selected meal - DB queries meal ID
+        apiService.getMeal(mealID).enqueue(new Callback <MealResponse>() {
+            @Override
+            public void onResponse(Call <MealResponse> call, Response<MealResponse> response) {
+                if(response.isSuccessful()) {
+
+                    meals = response.body();
+
+                    List<Meal> mealResponse = meals.getMeals();
+
+                    view.selectedMeal(mealResponse);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MealResponse> call, Throwable t) {
+                view.showToast(t.toString());
+            }
+        });
 
 
     }

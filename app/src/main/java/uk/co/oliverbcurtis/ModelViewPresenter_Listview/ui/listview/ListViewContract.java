@@ -13,7 +13,7 @@ public interface ListViewContract {
 
         void initView();
         void populateListView(List<Meal> meal);
-        Meal selectMeal();
+        void selectedMeal(List<Meal> mealResponse);
         void showToast(String toast);
     }
 
