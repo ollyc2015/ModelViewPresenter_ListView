@@ -54,7 +54,7 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
         // Populate the data into the template view using the data object
         Picasso.get().load(meal.getStrMealThumb()).into(iv_cosmetic);
         tv_cosmetic.setText(meal.getStrMeal());
-        tv_cuisineType.setText(meal.getStrCategory());
+        tv_cuisineType.setText(meal.getStrArea());
         tv_ingredient1.setText(meal.getStrIngredient1());
         tv_ingredient2.setText(meal.getStrIngredient2());
         tv_ingredient3.setText(meal.getStrIngredient3());

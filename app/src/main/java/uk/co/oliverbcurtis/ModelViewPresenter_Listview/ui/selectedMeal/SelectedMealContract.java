@@ -13,7 +13,7 @@ public interface SelectedMealContract {
     interface View {
         //Method used to set some data
         void retrieveSelectedMealData();
-        void showToast(String toast);
+
     }
 
     //The below methods will be defined in the ListViewPresenter class

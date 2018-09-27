@@ -46,21 +46,11 @@ public class SelectedMealView extends AppCompatActivity implements SelectedMealC
 
             ArrayList arraylists = (ArrayList) arraylist;
 
-            MealListAdapter cosmeticAdapter = new MealListAdapter(this, arraylists);
+            SelectedMealAdapter cosmeticAdapter = new SelectedMealAdapter(this, arraylists);
 
             final ListView listView = (ListView) findViewById(R.id.list_view);
             listView.setAdapter(cosmeticAdapter);
 
         }
     }
-
-
-
-    @Override
-    public void showToast(String toast) {
-
-        Toast.makeText(this, toast, Toast.LENGTH_LONG).show();
-    }
-
-
 }
