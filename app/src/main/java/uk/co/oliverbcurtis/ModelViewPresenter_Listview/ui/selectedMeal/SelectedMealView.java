@@ -2,14 +2,14 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import java.util.ArrayList;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 
 
-public class SelectedMealView extends AppCompatActivity implements SelectedMealContract.View {
+public class SelectedMealView extends BaseActivity implements SelectedMealContract.View {
 
 
     @Override

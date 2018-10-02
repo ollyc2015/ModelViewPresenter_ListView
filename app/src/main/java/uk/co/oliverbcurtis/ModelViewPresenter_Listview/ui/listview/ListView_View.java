@@ -14,14 +14,15 @@ import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealView;
 
 //This class relates to all the views/fragments etc used
-public class ListView_View extends AppCompatActivity implements View {
+public class ListView_View extends BaseActivity implements View {
 
     //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
-     private ListViewPresenter presenter;
+     //private ListViewPresenter presenter;
 
 
     @Override
@@ -30,7 +31,7 @@ public class ListView_View extends AppCompatActivity implements View {
         //Set the content view to the listview_view.xml
         setContentView(R.layout.listview_view);
 
-        presenter = new ListViewPresenter();
+       // presenter = new ListViewPresenter();
         //attach the view as this creates a link between this class and the listViewPresenter (without this would cause a null pointer)
         presenter.attachView(this);
         initView();
@@ -81,7 +82,7 @@ public class ListView_View extends AppCompatActivity implements View {
 
         ArrayList myList = ((ArrayList) mealResponse);
 
-        Intent i =new Intent(this,SelectedMealView.class);
+        Intent i = new Intent(this,SelectedMealView.class);
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("selectedMeal", myList);
         i.putExtras(bundle);

@@ -1,21 +1,15 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Parcelable;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealAPI;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
-
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealView;
+
 
 /*
 The presenter class holds all of the business logic and acts as a mediator between the view and model

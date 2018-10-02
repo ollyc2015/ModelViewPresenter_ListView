@@ -9,11 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
