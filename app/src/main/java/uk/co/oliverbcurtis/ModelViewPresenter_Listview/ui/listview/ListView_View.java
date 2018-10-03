@@ -2,16 +2,11 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
@@ -53,12 +48,10 @@ public class ListView_View extends BaseActivity implements View {
 
     @Override
     public void populateListView(final List<Meal> meal) {
-
-        MealListAdapter cosmeticAdapter = new MealListAdapter(this, meal);
-
         // Attach the adapter to a ListView
         final ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(cosmeticAdapter);
+        cosmeticAdapter.updateList(meal);
 
         //Get string value of selected item
         listView.setOnItemClickListener(

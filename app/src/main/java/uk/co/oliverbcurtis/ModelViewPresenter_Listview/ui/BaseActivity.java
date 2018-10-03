@@ -1,5 +1,7 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +11,14 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPrese
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
 
 
+@SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
 
     @Inject public
     ListViewPresenter presenter;
     @Inject public
     MealListAdapter cosmeticAdapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

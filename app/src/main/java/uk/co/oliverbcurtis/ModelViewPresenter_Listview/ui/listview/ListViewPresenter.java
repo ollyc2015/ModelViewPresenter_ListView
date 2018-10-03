@@ -8,17 +8,21 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealAPI;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 
 
 /*
 The presenter class holds all of the business logic and acts as a mediator between the view and model
 */
-public class ListViewPresenter implements ListViewContract.Presenter {
+public class ListViewPresenter extends BaseActivity implements ListViewContract.Presenter {
 
+    //Gets the view of the class that ListViewContract.View is being implemented by
     private ListViewContract.View view;
     private MealAPI apiService  = ApiUtils.getApiService();
     private MealResponse meals;
+    public static List<Meal> mealResponse;
+
 
 
     @Override
@@ -35,9 +39,17 @@ public class ListViewPresenter implements ListViewContract.Presenter {
 
                     meals = response.body();
 
-                    List<Meal> mealResponse = meals.getMeals();
+                    if(meals != null) {
 
-                    view.populateListView(mealResponse);
+                        mealResponse = meals.getMeals();
+
+                        view.populateListView(mealResponse);
+
+                    }else{
+
+                        view.showToast("No Response Received");
+
+                    }
                 }
             }
 

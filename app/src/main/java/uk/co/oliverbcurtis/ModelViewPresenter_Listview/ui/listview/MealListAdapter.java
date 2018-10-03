@@ -1,6 +1,7 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -21,12 +22,13 @@ public class MealListAdapter extends ArrayAdapter<Meal> {
         super(context,0,mealArrayList);
     }
 
-    /*
+
     public void updateList(List<Meal> meal) {
-        this.meal = meal;
+        this.clear();
+        this.addAll(meal);
         notifyDataSetChanged();
     }
-    */
+
 
     @NonNull
     @Override
@@ -34,6 +36,8 @@ public class MealListAdapter extends ArrayAdapter<Meal> {
 
         // Get the data item for this position
         Meal meal = getItem(position);
+        notifyDataSetChanged();
+
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.meal_list_layout, parent, false);
