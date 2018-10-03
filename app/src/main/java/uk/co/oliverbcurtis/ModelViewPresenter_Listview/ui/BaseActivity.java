@@ -17,7 +17,7 @@ public class BaseActivity extends AppCompatActivity {
     @Inject public
     ListViewPresenter presenter;
     @Inject public
-    MealListAdapter cosmeticAdapter;
+    MealListAdapter mealListAdapter;
 
 
     @Override

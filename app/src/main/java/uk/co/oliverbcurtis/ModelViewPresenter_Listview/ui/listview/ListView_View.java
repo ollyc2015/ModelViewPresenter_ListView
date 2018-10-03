@@ -48,10 +48,13 @@ public class ListView_View extends BaseActivity implements View {
 
     @Override
     public void populateListView(final List<Meal> meal) {
+
+        //MealListAdapter mealListAdapter = new MealListAdapter(this, meal);
+
         // Attach the adapter to a ListView
         final ListView listView = (ListView) findViewById(R.id.list_view);
-        listView.setAdapter(cosmeticAdapter);
-        cosmeticAdapter.updateList(meal);
+        listView.setAdapter(mealListAdapter);
+        mealListAdapter.updateList(meal);
 
         //Get string value of selected item
         listView.setOnItemClickListener(

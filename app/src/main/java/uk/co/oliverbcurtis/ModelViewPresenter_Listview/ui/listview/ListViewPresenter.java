@@ -21,7 +21,7 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
     private ListViewContract.View view;
     private MealAPI apiService  = ApiUtils.getApiService();
     private MealResponse meals;
-    public static List<Meal> mealResponse;
+    public List<Meal> mealResponse;
 
 
 
