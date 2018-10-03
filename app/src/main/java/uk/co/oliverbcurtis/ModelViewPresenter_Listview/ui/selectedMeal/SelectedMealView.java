@@ -33,10 +33,11 @@ public class SelectedMealView extends BaseActivity implements SelectedMealContra
             Bundle bundle = getIntent().getExtras();
             ArrayList<? extends Meal> arraylist = bundle.getParcelableArrayList("selectedMeal");
 
-            SelectedMealAdapter cosmeticAdapter = new SelectedMealAdapter(this, (ArrayList) arraylist);
+            //SelectedMealAdapter selectedMealAdapter = new SelectedMealAdapter(this, (ArrayList) arraylist);
 
             final ListView listView = (ListView) findViewById(R.id.list_view);
-            listView.setAdapter(cosmeticAdapter);
+            listView.setAdapter(selectedMealAdapter);
+            selectedMealAdapter.updateList((ArrayList) arraylist);
 
         }
     }

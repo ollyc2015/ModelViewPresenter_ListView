@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.dagger.DaggerApplication;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealAdapter;
 
 
 @SuppressLint("Registered")
@@ -18,6 +19,8 @@ public class BaseActivity extends AppCompatActivity {
     ListViewPresenter presenter;
     @Inject public
     MealListAdapter mealListAdapter;
+    @Inject public
+    SelectedMealAdapter selectedMealAdapter;
 
 
     @Override

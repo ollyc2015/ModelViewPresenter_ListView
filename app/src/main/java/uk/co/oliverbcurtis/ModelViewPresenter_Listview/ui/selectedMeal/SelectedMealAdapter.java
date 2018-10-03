@@ -21,6 +21,12 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
         super(context,0,mealArrayList);
     }
 
+    public void updateList(List<Meal> meal) {
+        this.clear();
+        this.addAll(meal);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

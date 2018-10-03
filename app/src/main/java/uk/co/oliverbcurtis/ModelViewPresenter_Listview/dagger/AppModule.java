@@ -12,6 +12,7 @@ import dagger.Provides;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealAdapter;
 
 
 /*
@@ -40,7 +41,7 @@ public class AppModule {
         return new ListViewPresenter();
     }
 
-    //Below provides an empty ArrayList so that providesMealListAdapter can be initialised
+    //Below provides an empty ArrayList so that providesMealListAdapter and providesSelectedMealAdapter can be initialised
     @Provides
     public List<Meal> providesMealList() {
         return new ArrayList<>();
@@ -50,5 +51,11 @@ public class AppModule {
     @Provides
     public MealListAdapter providesMealListAdapter(List<Meal> meal) {
         return new MealListAdapter(application, meal);
+    }
+
+    //This initialises the SelectedMealAdapter, passing the variables needed to the constructor
+    @Provides
+    public SelectedMealAdapter providesSelectedMealAdapter(List<Meal> meal) {
+        return new SelectedMealAdapter(application, meal);
     }
 }
