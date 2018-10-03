@@ -21,6 +21,13 @@ public class MealListAdapter extends ArrayAdapter<Meal> {
         super(context,0,mealArrayList);
     }
 
+    /*
+    public void updateList(List<Meal> meal) {
+        this.meal = meal;
+        notifyDataSetChanged();
+    }
+    */
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

@@ -13,7 +13,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 
-//Component binds our dependancies
+//Component binds our dependencies
 @Singleton
 @Component(modules = {AppModule.class})
 
