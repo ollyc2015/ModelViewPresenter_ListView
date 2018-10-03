@@ -2,15 +2,11 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.dagger;
 
 
 import android.content.Context;
-
-import java.util.List;
-
 import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
+
 
 
 /*
@@ -37,13 +33,5 @@ public class AppModule {
     public ListViewPresenter providesListviewPresenter() {
         return new ListViewPresenter();
     }
-
-
-/*
-    @Provides
-    public MealListAdapter providesMealListAdapter() {
-        return new MealListAdapter(application, );
-    }
-*/
 
 }

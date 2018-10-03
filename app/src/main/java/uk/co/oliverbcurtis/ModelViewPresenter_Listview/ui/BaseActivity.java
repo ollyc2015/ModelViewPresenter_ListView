@@ -6,15 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.dagger.DaggerApplication;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
-import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
 
 
 public class BaseActivity extends AppCompatActivity {
 
     @Inject public
     ListViewPresenter presenter;
-   // @Inject public
-   // MealListAdapter mealListAdapter;
+
 
 
     @Override

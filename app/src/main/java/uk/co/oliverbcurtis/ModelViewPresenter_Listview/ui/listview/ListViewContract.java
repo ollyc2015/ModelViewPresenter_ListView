@@ -15,6 +15,7 @@ public interface ListViewContract {
         void populateListView(List<Meal> meal);
         void selectedMeal(List<Meal> mealResponse);
         void showToast(String toast);
+
     }
 
     //The below methods will be defined in the ListViewPresenter class
@@ -23,6 +24,7 @@ public interface ListViewContract {
        void getMeal();
        void attachView(ListViewContract.View view);
        void onClick(Meal position);
+
     }
 
 }

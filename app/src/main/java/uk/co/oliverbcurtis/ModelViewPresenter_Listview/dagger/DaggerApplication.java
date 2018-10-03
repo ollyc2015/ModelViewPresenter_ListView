@@ -2,7 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.dagger;
 
 import android.app.Application;
 
-//An application class is the entry point for the app (from a cold start)
+//An application class is the entry point for the app (from a cold start), this is referenced in the Android Manifest
 public class DaggerApplication extends Application {
 
     //Here is where the AppComponent is handled from the AppComponent interface class

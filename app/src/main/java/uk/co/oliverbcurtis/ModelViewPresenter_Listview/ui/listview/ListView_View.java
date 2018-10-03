@@ -50,6 +50,7 @@ public class ListView_View extends BaseActivity implements View {
 
     }
 
+
     @Override
     public void populateListView(final List<Meal> meal) {
 
