@@ -22,7 +22,6 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
     }
 
     public void updateList(List<Meal> meal) {
-        this.clear();
         this.addAll(meal);
         notifyDataSetChanged();
     }
