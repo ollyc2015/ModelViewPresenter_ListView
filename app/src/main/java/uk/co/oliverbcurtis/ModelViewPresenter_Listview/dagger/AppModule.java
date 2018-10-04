@@ -55,7 +55,7 @@ public class AppModule {
 
     //This initialises the SelectedMealAdapter, passing the variables needed to the constructor
     @Provides
-    public SelectedMealAdapter providesSelectedMealAdapter(List<Meal> meal) {
-        return new SelectedMealAdapter(application, meal);
+    public SelectedMealAdapter providesSelectedMealAdapter(List<Meal> selectedMeal) {
+        return new SelectedMealAdapter(application, selectedMeal);
     }
 }

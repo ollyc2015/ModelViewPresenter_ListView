@@ -7,6 +7,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
@@ -19,6 +22,8 @@ public class ListView_View extends BaseActivity implements View {
     //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
      //private ListViewPresenter presenter;
 
+    @BindView(R.id.list_view)
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,7 @@ public class ListView_View extends BaseActivity implements View {
        // presenter = new ListViewPresenter();
         //attach the view as this creates a link between this class and the listViewPresenter (without this would cause a null pointer)
         presenter.attachView(this);
+        ButterKnife.bind(this);
         initView();
     }
 
@@ -52,7 +58,7 @@ public class ListView_View extends BaseActivity implements View {
         //MealListAdapter mealListAdapter = new MealListAdapter(this, meal);
 
         // Attach the adapter to a ListView
-        final ListView listView = (ListView) findViewById(R.id.list_view);
+        //final ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(mealListAdapter);
         mealListAdapter.updateList(meal);
 

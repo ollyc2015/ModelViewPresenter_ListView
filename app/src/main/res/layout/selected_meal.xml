@@ -53,123 +53,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_meal" />
 
 
-            <TextView
-                android:id="@+id/tv_ingredient1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/dynamicSelectedMealLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_cuisineType" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_cuisineType">
 
+            </LinearLayout>
 
-
-            <TextView
-                android:id="@+id/tv_ingredient2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ingredient1"/>
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient3"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient2"/>
-
-
-            <TextView
-               android:id="@+id/tv_ingredient4"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient3"/>
-
-
-
-            <TextView
-                android:id="@+id/tv_ingredient5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ingredient4"/>
-
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient6"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient5"/>
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient7"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient6"/>
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient8"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient7"/>
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient9"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient8"/>
-
-
-
-            <TextView
-               android:id="@+id/tv_ingredient10"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/tv_ingredient9"/>
 
 
             <TextView
@@ -183,7 +79,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_ingredient10" />
+                app:layout_constraintTop_toBottomOf="@+id/dynamicSelectedMealLayout" />
 
         </android.support.constraint.ConstraintLayout>
 
