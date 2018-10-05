@@ -7,6 +7,7 @@ Pulls meals from https://www.themealdb.com/api.php via a public API.
 # Design
 * MVP.
 * Dagger2.
+* Butter Knife
 * ListView.
 * Activity.
 * Retrofit2.
