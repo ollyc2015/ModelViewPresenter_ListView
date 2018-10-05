@@ -2,12 +2,8 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
@@ -17,7 +13,7 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 
 public class SelectedMealView extends BaseActivity implements SelectedMealContract.View {
 
-
+    //Butter knife used to set the adapter to the ListView
     @BindView(R.id.list_view)
     ListView listView;
 
@@ -42,9 +38,6 @@ public class SelectedMealView extends BaseActivity implements SelectedMealContra
             Bundle bundle = getIntent().getExtras();
             ArrayList<? extends Meal> arraylist = bundle.getParcelableArrayList("selectedMeal");
 
-            //SelectedMealAdapter selectedMealAdapter = new SelectedMealAdapter(this, (ArrayList) arraylist);
-
-            //final ListView listView = (ListView) findViewById(R.id.list_view);
             listView.setAdapter(selectedMealAdapter);
             selectedMealAdapter.updateList((ArrayList) arraylist);
 

@@ -49,8 +49,8 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
         // Lookup view for data population
         ImageView iv_meal = convertView.findViewById(R.id.iv_meal);
         TextView tv_meal = convertView.findViewById(R.id.tv_meal);
-        TextView tv_cuisineType =  convertView.findViewById(R.id.tv_cuisineType);
-        TextView tv_instructions =  convertView.findViewById(R.id.tv_instructions);
+        TextView tv_cuisineType = convertView.findViewById(R.id.tv_cuisineType);
+        TextView tv_instructions = convertView.findViewById(R.id.tv_instructions);
         LinearLayout dynamicSelectedMealLayout = convertView.findViewById(R.id.dynamicSelectedMealLayout);
 
         /*
@@ -113,7 +113,7 @@ public class SelectedMealAdapter  extends ArrayAdapter<Meal> {
             for (Object value : mealIngredient) {
                 if (!value.equals("")) {
 
-                    Log.i("Ingredient: ", mealIngredient.toString());
+                    //Log.i("Ingredient: ", mealIngredient.toString());
 
                     final TextView tv_ingredient = new TextView(getContext());
 

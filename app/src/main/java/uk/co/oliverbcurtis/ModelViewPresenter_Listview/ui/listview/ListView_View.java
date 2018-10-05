@@ -2,6 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -82,6 +83,7 @@ public class ListView_View extends BaseActivity implements View {
 
     @Override
     public void selectedMeal(List<Meal> mealResponse) {
+
 
         ArrayList myList = ((ArrayList) mealResponse);
 
