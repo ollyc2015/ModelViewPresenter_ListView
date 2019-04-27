@@ -2,10 +2,10 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class ListView_View extends BaseActivity implements View {
 
        // presenter = new ListViewPresenter();
         //attach the view as this creates a link between this class and the listViewPresenter (without this would cause a null pointer)
+
         presenter.attachView(this);
         ButterKnife.bind(this);
         initView();

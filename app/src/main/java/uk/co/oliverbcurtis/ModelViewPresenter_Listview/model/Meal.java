@@ -3,14 +3,9 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.json.JSONArray;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
 
-public class Meal extends JSONArray implements Serializable {
+public class Meal implements Serializable {
 
 
     @SerializedName("idMeal")

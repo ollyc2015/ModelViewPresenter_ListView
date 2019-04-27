@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealAPI;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewManager;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealAdapter;
@@ -31,14 +35,21 @@ public class AppModule {
     @Provides
     @Singleton
     Context providesApplicationContext(){
-
         return application;
+    }
+
+    @Provides static MealAPI mealAPI() {
+        return ApiUtils.getApiService();
+    }
+
+    @Provides static ListViewManager manager(MealAPI mealAPI) {
+        return new ListViewManager(mealAPI);
     }
 
     //Below creates reference to a new ListViewPresenter object
     @Provides
-    public ListViewPresenter providesListViewPresenter() {
-        return new ListViewPresenter();
+    public ListViewPresenter providesListViewPresenter(ListViewManager manager) {
+        return new ListViewPresenter(manager);
     }
 
     //Below provides an empty ArrayList so that providesMealListAdapter and providesSelectedMealAdapter can be initialised
