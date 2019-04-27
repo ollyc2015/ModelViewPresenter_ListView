@@ -23,14 +23,8 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
     private MealResponse meals;
     public List<Meal> mealResponse;
 
-
-
     @Override
     public void getMeal() {
-
-        //Call the external DB to load all the latest meals
-        apiService.getMealList();
-
         // Retrofit call to API, returns list of meals
         apiService.getMealList().enqueue(new Callback <MealResponse>() {
             @Override
@@ -58,7 +52,6 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
                 view.showToast(t.toString());
             }
         });
-
     }
 
     //Below deals with assigning the pointer view to the view
@@ -68,9 +61,6 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
         this.view = view;
 
     }
-
-
-
 
     @Override
     public void onClick(Meal position) {
