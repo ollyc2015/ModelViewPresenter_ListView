@@ -35,7 +35,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponseWithSingleMeas_thenOneMealReturned() {
-        when(manager.getMeals()).thenReturn(MEALS_ONE);
+        when(manager.getMeals(view)).thenReturn(MEALS_ONE);
 
         presenter.getMeal();
 
@@ -47,7 +47,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponseWithThreeMeals_thenThreeMealsReturned() {
-        when(manager.getMeals()).thenReturn(MEALS_THREE);
+        when(manager.getMeals(view)).thenReturn(MEALS_THREE);
 
         presenter.getMeal();
 
@@ -59,7 +59,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenUnsuccessfulResponse_thenNoMealsMessageDisplayed() {
-        when(manager.getMeals()).thenReturn(null);
+        when(manager.getMeals(view)).thenReturn(null);
 
         presenter.getMeal();
 

@@ -1,5 +1,9 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,19 +15,19 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.ApiUtils;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealAPI;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContract.View;
 
 
 /*
 The presenter class holds all of the business logic and acts as a mediator between the view and model
 */
-public class ListViewPresenter implements ListViewContract.Presenter {
+public class ListViewPresenter extends BaseActivity implements ListViewContract.Presenter {
 
     //Gets the view of the class that ListViewContract.View is being implemented by
     private ListViewContract.View view;
     private MealAPI apiService  = ApiUtils.getApiService();
     private MealResponse meals;
-    private List<Meal> mealResponse;
 
     @Inject ListViewManager manager;
 
@@ -33,11 +37,17 @@ public class ListViewPresenter implements ListViewContract.Presenter {
 
     @Override
     public void getMeal() {
-        final List<Meal> meals = manager.getMeals();
+         manager.getMeals(this);
+    }
+
+    @Override
+    public void populateMeals(List<Meal> meals){
+
         if (meals != null)
             view.populateListView(meals);
         else
-        view.showToast("No Response Received");
+            view.showToast("No Response Received");
+
     }
 
     //Below deals with assigning the pointer view to the view
@@ -71,7 +81,5 @@ public class ListViewPresenter implements ListViewContract.Presenter {
                 view.showToast(t.toString());
             }
         });
-
-
     }
 }

@@ -19,14 +19,17 @@ public class ListViewManager {
         this.apiService = apiService;
     }
 
-    List<Meal> getMeals() {
+    public void getMeals(final ListViewPresenter listViewPresenter) {
         apiService.getMealList().enqueue(new Callback<MealResponse>() {
             @Override
             public void onResponse(Call<MealResponse> call, Response<MealResponse> response) {
                 if(response.isSuccessful()) {
                     mealResponse = response.body();
-                    if(mealResponse != null)
+
+                    if(mealResponse != null) {
                         meals = mealResponse.getMeals();
+                        listViewPresenter.populateMeals(meals);
+                    }
                 }
             }
 
@@ -35,7 +38,7 @@ public class ListViewManager {
                 meals = null;
             }
         });
-        return meals;
     }
-
 }
+
+

@@ -22,6 +22,7 @@ public interface ListViewContract {
     interface Presenter {
 
        void getMeal();
+       void populateMeals(List<Meal> meals);
        void attachView(ListViewContract.View view);
        void onClick(Meal position);
 

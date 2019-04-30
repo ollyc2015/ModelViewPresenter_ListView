@@ -2,6 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,8 +32,6 @@ public class ListView_View extends BaseActivity implements View {
         super.onCreate(savedInstanceState);
         //Set the content view to the listview_view.xml
         setContentView(R.layout.listview_view);
-
-       // presenter = new ListViewPresenter();
         //attach the view as this creates a link between this class and the listViewPresenter (without this would cause a null pointer)
 
         presenter.attachView(this);
@@ -57,10 +56,6 @@ public class ListView_View extends BaseActivity implements View {
     @Override
     public void populateListView(final List<Meal> meal) {
 
-        //MealListAdapter mealListAdapter = new MealListAdapter(this, meal);
-
-        // Attach the adapter to a ListView
-        //final ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(mealListAdapter);
         mealListAdapter.updateList(meal);
 
