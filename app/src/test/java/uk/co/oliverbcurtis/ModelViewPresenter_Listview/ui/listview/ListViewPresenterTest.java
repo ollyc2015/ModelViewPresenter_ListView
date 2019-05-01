@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import java.util.ArrayList;
 import java.util.List;
 
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealCallback;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
 import static junit.framework.TestCase.assertEquals;
@@ -21,6 +22,7 @@ public class ListViewPresenterTest {
 
     @Mock ListView_View view;
     @Mock ListViewManager manager;
+    @Mock MealCallback mealCallback;
 
     private final List<Meal> MEALS_ONE = createMealList(1);
     private final List<Meal> MEALS_THREE = createMealList(3);
@@ -35,7 +37,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponseWithSingleMeas_thenOneMealReturned() {
-        when(manager.getMeals(view)).thenReturn(MEALS_ONE);
+        when(manager.getMeals(mealCallback)).thenReturn(MEALS_ONE);
 
         presenter.getMeal();
 
@@ -47,7 +49,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponseWithThreeMeals_thenThreeMealsReturned() {
-        when(manager.getMeals(view)).thenReturn(MEALS_THREE);
+        when(manager.getMeals(mealCallback)).thenReturn(MEALS_THREE);
 
         presenter.getMeal();
 
@@ -59,7 +61,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenUnsuccessfulResponse_thenNoMealsMessageDisplayed() {
-        when(manager.getMeals(view)).thenReturn(null);
+        when(manager.getMeals(mealCallback)).thenReturn(null);
 
         presenter.getMeal();
 
