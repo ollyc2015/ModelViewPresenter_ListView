@@ -10,8 +10,10 @@ import java.util.List;
 
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote.MealCallback;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.MealResponse;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -23,6 +25,7 @@ public class ListViewPresenterTest {
     @Mock ListView_View view;
     @Mock ListViewManager manager;
     @Mock MealCallback mealCallback;
+    @Mock MealResponse mealResponse;
 
     private final List<Meal> MEALS_ONE = createMealList(1);
     private final List<Meal> MEALS_THREE = createMealList(3);
@@ -37,7 +40,7 @@ public class ListViewPresenterTest {
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponseWithSingleMeas_thenOneMealReturned() {
-        when(manager.getMeals(mealCallback)).thenReturn(MEALS_ONE);
+        when(manager.getMeals (MealCallback.class)).thenReturn(MEALS_ONE);
 
         presenter.getMeal();
 
