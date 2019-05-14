@@ -21,7 +21,7 @@ public interface ListViewContract {
     //The below methods will be defined in the ListViewPresenter class
     interface Presenter {
 
-       void getMeal();
+       void requestAllMeals();
        void attachView(ListViewContract.View view);
        void onClick(Meal position);
 

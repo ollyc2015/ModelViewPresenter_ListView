@@ -2,6 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.async.remote;
 
 import java.util.List;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

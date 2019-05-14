@@ -23,8 +23,6 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
     //Gets the view of the class that ListViewContract.View is being implemented by
     private ListViewContract.View view;
-    private MealAPI apiService  = ApiUtils.getApiService();
-    private MealResponse meals;
     private List<Meal> returnedMeals;
 
     @Inject ListViewManager manager;
@@ -40,7 +38,8 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
     }
 
     @Override
-    public void getMeal() {
+    public void requestAllMeals() {
+
          manager.getMeals(new MealCallback() {
              @Override
              public void onSuccess(MealResponse mealResponse) {
@@ -58,11 +57,12 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
          });
     }
 
+
     @Override
     public void onClick(Meal position) {
 
         final String mealID = position.getIdMeal().toString();
-        //apiService.getMeal();
+        //apiService.requestAllMeals();
 
         manager.getMeals(mealID, new MealCallback() {
             @Override

@@ -1,7 +1,17 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observer;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -15,14 +25,17 @@ public class ListViewManager {
     private MealAPI apiService;
     private MealResponse mealResponse;
 
+
     public ListViewManager(MealAPI apiService) {
         this.apiService = apiService;
     }
 
-    public void getMeals(final MealCallback callback) {
+
+    void getMeals(final MealCallback callback) {
+
         apiService.getMealList().enqueue(new Callback<MealResponse>() {
             @Override
-            public void onResponse(Call<MealResponse> call, Response<MealResponse> response) {
+            public void onResponse(@NonNull Call<MealResponse> call, @NonNull Response<MealResponse> response) {
                 if(response.isSuccessful()) {
 
                     mealResponse = response.body();
@@ -32,7 +45,7 @@ public class ListViewManager {
             }
 
             @Override
-            public void onFailure(Call<MealResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MealResponse> call, @NonNull Throwable t) {
 
                 callback.onError();
             }
@@ -40,12 +53,12 @@ public class ListViewManager {
     }
 
 
-    public void getMeals(String mealID, final MealCallback mealCallback) {
+    void getMeals(String mealID, final MealCallback mealCallback) {
 
         // Retrofit call to API, returns the meal details of the selected meal - DB queries meal ID
         apiService.getMeal(mealID).enqueue(new Callback<MealResponse>() {
             @Override
-            public void onResponse(Call<MealResponse> call, Response<MealResponse> response) {
+            public void onResponse(@NonNull Call<MealResponse> call, @NonNull Response<MealResponse> response) {
                 if (response.isSuccessful()) {
 
                     mealResponse = response.body();
@@ -55,12 +68,13 @@ public class ListViewManager {
             }
 
             @Override
-            public void onFailure(Call<MealResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<MealResponse> call, @NonNull Throwable t) {
 
                 mealCallback.onError();
             }
         });
     }
+
 }
 
 
