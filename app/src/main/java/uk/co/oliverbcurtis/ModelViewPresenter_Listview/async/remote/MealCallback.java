@@ -6,4 +6,6 @@ public interface MealCallback {
 
     void onSuccess(MealResponse value);
     void onError();
+
+    void onSuccess(boolean b);
 }

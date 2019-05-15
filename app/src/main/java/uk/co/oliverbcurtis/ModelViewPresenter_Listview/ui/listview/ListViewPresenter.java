@@ -1,5 +1,7 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.util.Log;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -54,6 +56,13 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
                  view.showToast("No Response Received");
              }
+
+             @Override
+             public void onSuccess(boolean b) {
+
+                 Log.d("RequestMealsTest", "Test Passed");
+
+             }
          });
     }
 
@@ -80,6 +89,12 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
                 view.showToast("No Response Received");
 
+            }
+
+            @Override
+            public void onSuccess(boolean b) {
+
+                Log.d("RequestMealTest", "Test Passed");
             }
         });
     }
