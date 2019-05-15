@@ -45,9 +45,9 @@ public class ListViewPresenterTest {
 
         verify(manager).getMeals(mealCaptor.capture());
 
-        mealCaptor.getValue().onSuccess(true);
+        mealCaptor.getValue().testSuccess(true);
 
-        verify(mealCallback).onSuccess(true);
+        verify(mealCallback).testSuccess(true);
 
     }
 

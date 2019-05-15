@@ -7,5 +7,5 @@ public interface MealCallback {
     void onSuccess(MealResponse value);
     void onError();
 
-    void onSuccess(boolean b);
+    void testSuccess(boolean b);
 }

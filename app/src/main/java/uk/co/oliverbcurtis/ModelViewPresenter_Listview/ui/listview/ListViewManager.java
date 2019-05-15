@@ -40,6 +40,7 @@ public class ListViewManager {
 
                     mealResponse = response.body();
                     callback.onSuccess(mealResponse);
+                    callback.testSuccess(true);
 
                 }
             }

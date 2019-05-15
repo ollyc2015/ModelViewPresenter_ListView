@@ -58,7 +58,7 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
              }
 
              @Override
-             public void onSuccess(boolean b) {
+             public void testSuccess(boolean b) {
 
                  Log.d("RequestMealsTest", "Test Passed");
 
@@ -92,7 +92,7 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
             }
 
             @Override
-            public void onSuccess(boolean b) {
+            public void testSuccess(boolean b) {
 
                 Log.d("RequestMealTest", "Test Passed");
             }
