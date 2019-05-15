@@ -49,6 +49,8 @@ public class ListViewPresenterTest {
 
         verify(mealCallback).testSuccess(true);
 
+        presenter.requestAllMeals();
+
     }
 
 /*
