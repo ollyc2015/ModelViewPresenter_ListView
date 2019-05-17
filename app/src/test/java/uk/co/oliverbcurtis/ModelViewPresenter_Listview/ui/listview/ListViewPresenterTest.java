@@ -21,7 +21,6 @@ public class ListViewPresenterTest {
     @Mock ListView_View view;
     @Mock ListViewManager manager;
     @Mock MealCallback mealCallback;
-    @Mock MealResponse mealResponse;
 
     private final List<Meal> MEALS_ONE = createMealList(1);
    // private final List<Meal> MEALS_THREE = createMealList(3);
