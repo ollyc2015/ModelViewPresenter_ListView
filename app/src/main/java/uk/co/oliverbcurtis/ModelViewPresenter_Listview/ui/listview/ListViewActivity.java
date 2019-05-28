@@ -18,7 +18,7 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewContr
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealView;
 
 //This class relates to all the views/fragments etc used
-public class ListView_View extends BaseActivity implements View {
+public class ListViewActivity extends BaseActivity implements View {
 
     //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
      //private ListViewPresenter presenter;
