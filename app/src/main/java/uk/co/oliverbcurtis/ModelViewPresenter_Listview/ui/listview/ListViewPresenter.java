@@ -34,10 +34,10 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
     @SuppressLint("CheckResult")
     @Override
-    public void requestAllMeals(Scheduler schedulers) {
+    public void requestAllMeals() {
         manager.getMeals()
                 .subscribeOn(Schedulers.io())
-                .observeOn(schedulers)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> view.populateListView(response), t -> view.showToast(t.getMessage()));
     }
 

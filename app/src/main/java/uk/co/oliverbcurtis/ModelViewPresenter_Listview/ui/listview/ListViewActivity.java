@@ -28,7 +28,6 @@ public class ListViewActivity extends BaseActivity implements View {
     @BindView(R.id.list_view)
     ListView listView;
 
-    Scheduler schedulers = AndroidSchedulers.mainThread();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class ListViewActivity extends BaseActivity implements View {
     @Override
     public void initView() {
 
-        presenter.requestAllMeals(schedulers);
+        presenter.requestAllMeals();
 
     }
 
