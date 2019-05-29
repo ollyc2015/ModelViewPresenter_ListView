@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Scheduler;
 import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.plugins.RxJavaPlugins;
+import io.reactivex.schedulers.Schedulers;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
 import static junit.framework.TestCase.assertEquals;
@@ -24,23 +28,27 @@ public class ListViewPresenterTest {
     @Mock ListViewActivity view;
     @Mock ListViewManager manager;
 
-    private final List<Meal> MEALS_ONE = createMealList(1);
+
     private final List<Meal> MEALS_THREE = createMealList(3);
 
     private ListViewPresenter presenter;
+    Scheduler schedulers = Schedulers.trampoline();
 
+    //Do something before @Test method starts
     @Before
     public void setUp() {
         initMocks(this);
         presenter = new ListViewPresenter(manager);
         presenter.attachView(view);
+
+
     }
 
     @Test
     public void givenMealsRequested_whenSuccessfulResponse_thenMealsReturned() {
         when(manager.getMeals()).thenReturn(Single.just(MEALS_THREE));
 
-        presenter.requestAllMeals();
+        presenter.requestAllMeals(schedulers);
 
         ArgumentCaptor<List> listCaptor = ArgumentCaptor.forClass(List.class);
         verify(view, times(1)).populateListView(listCaptor.capture());
@@ -53,7 +61,7 @@ public class ListViewPresenterTest {
     public void givenMealsRequested_whenUnsuccessfulResponse_thenErrorThrownAndMessageDisplayed() {
         when(manager.getMeals()).thenReturn(Single.error(new IOException("Error message")));
 
-        presenter.requestAllMeals();
+        presenter.requestAllMeals(schedulers);
 
         verify(view, times(1)).showToast(anyString());
     }

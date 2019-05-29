@@ -2,6 +2,7 @@ package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import java.util.List;
 
+import io.reactivex.Scheduler;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 
 //Contract holds the well defined methods for all of the 3 classes
@@ -21,7 +22,7 @@ public interface ListViewContract {
     //The below methods will be defined in the ListViewPresenter class
     interface Presenter {
 
-       void requestAllMeals();
+       void requestAllMeals(Scheduler schedulers);
        void attachView(ListViewContract.View view);
        void onClick(Meal position);
 

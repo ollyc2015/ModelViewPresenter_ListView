@@ -1,7 +1,10 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
+import android.annotation.SuppressLint;
+
 import javax.inject.Inject;
 
+import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
@@ -29,20 +32,22 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
         this.view = view;
     }
 
+    @SuppressLint("CheckResult")
     @Override
-    public void requestAllMeals() {
+    public void requestAllMeals(Scheduler schedulers) {
         manager.getMeals()
                 .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(schedulers)
                 .subscribe(response -> view.populateListView(response), t -> view.showToast(t.getMessage()));
     }
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void onClick(Meal position) {
         manager.getMeals(position.getIdMeal())
                 .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(response -> view.selectedMeal(response), t -> view.showToast(t.getMessage()));
     }
 }

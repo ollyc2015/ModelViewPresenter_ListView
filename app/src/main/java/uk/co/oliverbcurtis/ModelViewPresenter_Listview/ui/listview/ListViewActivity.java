@@ -11,6 +11,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.R;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.BaseActivity;
@@ -25,6 +27,8 @@ public class ListViewActivity extends BaseActivity implements View {
 
     @BindView(R.id.list_view)
     ListView listView;
+
+    Scheduler schedulers = AndroidSchedulers.mainThread();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class ListViewActivity extends BaseActivity implements View {
     @Override
     public void initView() {
 
-        presenter.requestAllMeals();
+        presenter.requestAllMeals(schedulers);
 
     }
 
