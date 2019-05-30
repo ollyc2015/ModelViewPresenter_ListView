@@ -23,7 +23,7 @@ import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedM
 public class ListViewActivity extends BaseActivity implements View {
 
     //In our listview_view.xml, we have a TextView and a Button, hence they are declared below
-     //private ListViewPresenter presenter;
+    //private ListViewPresenter presenter;
 
     @BindView(R.id.list_view)
     ListView listView;
