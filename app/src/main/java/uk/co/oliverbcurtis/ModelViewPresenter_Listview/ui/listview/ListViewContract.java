@@ -27,5 +27,4 @@ public interface ListViewContract {
        void onClick(Meal position);
 
     }
-
 }

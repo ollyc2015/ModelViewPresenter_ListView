@@ -1,10 +1,6 @@
 package uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview;
 
 import android.annotation.SuppressLint;
-
-import javax.inject.Inject;
-
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.model.Meal;
@@ -19,6 +15,7 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
     //Gets the view of the class that ListViewContract.View is being implemented by
     private ListViewContract.View view;
+
     public ListViewPresenter(ListViewManager manager) {
         this.manager = manager;
     }

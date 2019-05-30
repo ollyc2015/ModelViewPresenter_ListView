@@ -27,7 +27,6 @@ public class ListViewManager {
         return apiService.getMeal(mealID)
                 .map(MealResponse::getMeals);
     }
-
 }
 
 
