@@ -19,9 +19,6 @@ public class ListViewPresenter extends BaseActivity implements ListViewContract.
 
     //Gets the view of the class that ListViewContract.View is being implemented by
     private ListViewContract.View view;
-
-    @Inject ListViewManager manager;
-
     public ListViewPresenter(ListViewManager manager) {
         this.manager = manager;
     }

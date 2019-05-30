@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.dagger.DaggerApplication;
+import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewManager;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.ListViewPresenter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.listview.MealListAdapter;
 import uk.co.oliverbcurtis.ModelViewPresenter_Listview.ui.selectedMeal.SelectedMealAdapter;
@@ -21,6 +22,8 @@ public class BaseActivity extends AppCompatActivity {
     MealListAdapter mealListAdapter;
     @Inject public
     SelectedMealAdapter selectedMealAdapter;
+    @Inject public
+    ListViewManager manager;
 
 
     @Override
