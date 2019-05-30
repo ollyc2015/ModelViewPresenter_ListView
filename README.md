@@ -7,6 +7,8 @@ I have made a Kotlin equivalent of this project to help those trying to get fami
 Pulls meals from https://www.themealdb.com/api.php via a public API.
 
 # Design
+* RXJava
+* Unit Testing
 * MVP.
 * Dagger2.
 * Butter Knife
